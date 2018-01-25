@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue.js</title>
+
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>computed Option</h1>
+    <hr>
+    <div id="app">
+        {{newPrice}}
+        <ul>
+            <li v-for="item in reversNews">{{item.title}}--{{item.data}}</li>
+        </ul>
+    </div>
+
+
+    <script type="text/javascript">
+        var newsList = [
+            {title:'xx',data:'1'},
+            {title:'oo',data:'2'},
+            {title:'xo',data:'3'},
+            {title:'ox',data:'4'}
+        ];
+        var app = new Vue({
+            el:'#app',
+            data:{
+                price:100,
+                newsList:newsList
+            },
+            computed:{
+                newPrice:function(){
+                    return this.price='$'+this.price+'yuan';
+                },
+                reversNews:function(){
+                    return this.newsList.reverse();
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
